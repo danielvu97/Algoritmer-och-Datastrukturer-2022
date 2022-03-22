@@ -1,7 +1,11 @@
 package Uppgift2;
 
-public class Uppgift2 {
-    public static void main(String[] args) {
-        System.out.println("Hello World2");
+import java.util.Comparator;
+
+public class ComparatorCapital implements Comparator<Land> {
+
+    @Override
+    public int compare(Land o1, Land o2) {
+        return (o1.getCapital().compareTo(o2.getCapital()));
     }
 }
