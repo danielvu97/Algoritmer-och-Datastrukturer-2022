@@ -1,1 +1,1 @@
-Difference between arrays and generics is how they enforce type checking. In otherwords. You need to type cast for it to work.
+Difference between arrays and generics is how they enforce type checking. In otherwords. You need to type cast a generic array for it to work.
