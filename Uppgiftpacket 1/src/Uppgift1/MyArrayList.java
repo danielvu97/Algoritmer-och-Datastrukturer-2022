@@ -7,11 +7,11 @@ import java.util.Iterator;
 
 public class MyArrayList<T> implements Iterable<T> {
 
-    private ArrayList list; //creates an empty list
+    public T[] list; //creates an empty list
     private int elementCounter = 0;
 
     public MyArrayList() {
-        list = new ArrayList();
+        list = (T[]) new Object[10];
     }
 
     public boolean add(T t) {
