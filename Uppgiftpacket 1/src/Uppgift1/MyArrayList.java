@@ -32,7 +32,6 @@ public class MyArrayList<T> implements Iterable<T> {
         }
         list[elementCounter] = t;
         elementCounter++;
-        System.out.println("added " + t);
         return true;
     }
 
@@ -105,10 +104,14 @@ public class MyArrayList<T> implements Iterable<T> {
     }
 
     public T set(int index, T t) {
-        T temp = list[index];
-        list[index] = t;
+        if (index >= elementCounter || index < 0) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            T temp = list[index];
+            list[index] = t;
 
-        return temp;
+            return temp;
+        }
     }
 
     public boolean isEmpty() {
@@ -119,7 +122,8 @@ public class MyArrayList<T> implements Iterable<T> {
     }
 
     public int size() {
-        return list.length;
+        //return list.length;
+        return elementCounter;
     }
 
     public Iterator<T> iterator() {
@@ -146,14 +150,19 @@ public class MyArrayList<T> implements Iterable<T> {
         test.add("tester3");
         test.add("tester4");
         test.add("tester5");
-       // test.add("tester6");
-        //test.add("tester7");
         test.remove(4);
+        test.remove("tester");
 
+        //test.clear();
+
+        System.out.println(test.contains("tester77"));
+        System.out.println(test.size());
+
+
+        //test.set(0,"tester99");
 
         System.out.println(Arrays.toString(test.list));
-
-
+        System.out.println(test.get(0));
 
         /*
 
@@ -164,7 +173,7 @@ public class MyArrayList<T> implements Iterable<T> {
 
         */
 
-        //System.out.println(test.get(0));
+
     }
 
 }
