@@ -6,6 +6,12 @@ public class ComparatorName implements Comparator <Land>{
 
     @Override
     public int compare(Land o1, Land o2) {
-        return (o1.getName().compareTo(o2.getName()));
+        if(o1.getName().compareTo(o2.getName()) > 0){
+            return  1;
+        }
+        else if(o1.getName().compareTo(o2.getName()) < 0){
+            return -1;
+        }
+        return 0;
     }
 }

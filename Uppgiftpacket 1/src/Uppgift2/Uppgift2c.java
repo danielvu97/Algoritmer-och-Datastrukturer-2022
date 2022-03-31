@@ -2,6 +2,7 @@ package Uppgift2;
 
 import Uppgift1.MyArrayList;
 
+import java.lang.reflect.Array;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -55,7 +56,7 @@ public class Uppgift2c {
         Land land1 = new Land("Sverige","Stockholm",100000);
         Land land2 = new Land("Vietnam","Hanoi",64520);
         Land land3 = new Land("Korea","Seoul",99999999);
-        Land land4 = new Land("Kosovo","Shiptar",500000);
+        Land land4 = new Land("Germany","Berlin",500000);
 
         MyArrayList<Land> arrayList = new MyArrayList<Land>();
         arrayList.add(land1);
@@ -63,9 +64,31 @@ public class Uppgift2c {
         arrayList.add(land3);
         arrayList.add(land4);
 
+        System.out.println("CompareTo");
+        MyArrayList<Land> minMax = findMinMax(arrayList);
+        for(Land a : minMax){
+            System.out.println(a);
+        }
 
+        System.out.println("\n" + "ComparatorCapital");
+        MyArrayList<Land> minMaxCapital = findMinMax(arrayList, new ComparatorCapital());
+        for(Land a : minMaxCapital){
+            System.out.println(a);
+        }
 
-        System.out.println(land1);
+        System.out.println("\n" + "ComparatorName");
+        MyArrayList<Land> minMaxName = findMinMax(arrayList, new ComparatorName());
+        for(Land a : minMaxName){
+            System.out.println(a);
+        }
+
+        System.out.println("\n" + "ComparatorInhabitants");
+        MyArrayList<Land> minMaxInhabitants = findMinMax(arrayList, new ComparatorInhabitants());
+        for(Land a : minMaxInhabitants){
+            System.out.println(a);
+        }
+
+        System.out.println();
     }
 
 }
