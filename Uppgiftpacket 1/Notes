@@ -1,2 +1,5 @@
 Difference between arrays and generics is how they enforce type checking. In otherwords. You need to type cast a generic array for it to work.
 <T> = Typinstanser. T = typparameter.
+
+använd equals istället för ==.
+== jämför adresser medans equals jämför värdet av objectet.
