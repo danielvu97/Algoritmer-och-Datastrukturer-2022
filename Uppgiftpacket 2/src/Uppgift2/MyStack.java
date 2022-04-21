@@ -1,5 +1,6 @@
-package Uppgift1;
 package Uppgift2;
+
+import Uppgift1.DoublyLinkedList;
 
 import java.util.Iterator;
 
