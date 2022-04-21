@@ -1,20 +1,30 @@
+package Uppgift1;
 package Uppgift2;
 
 import java.util.Iterator;
 
 public class MyStack<T extends Comparable<T>> implements Iterable<T>{
 
-    public int counter;
+    public DoublyLinkedList<T> stack;
 
     public MyStack(){
-        this.counter = 0;
+        stack = new DoublyLinkedList<T>();
+    }
+
+    public void push(T t) {
+        stack.add(t);
+    }
+
+    public T peek() {
+        return stack.getLast();
     }
 
     public boolean isEmpty(){
-        if(counter == 0){
-            return true;
-        }
-        return false;
+        return(stack.isEmpty());
+    }
+
+    public T pop() {
+        return stack.removeLast();
     }
 
     @Override
