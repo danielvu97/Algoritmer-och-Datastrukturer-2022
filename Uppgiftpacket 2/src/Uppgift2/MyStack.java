@@ -1,19 +1,20 @@
 package Uppgift2;
 
 import Uppgift1.DoublyLinkedList;
+import Uppgift1.DoublyLinkedListIterator;
 
 import java.util.Iterator;
 
-public class MyStack<T extends Comparable<T>> implements Iterable<T>{
+public class MyStack<T extends Comparable<T>> implements Iterable<T> {
 
     public DoublyLinkedList<T> stack;
 
-    public MyStack(){
+    public MyStack() {
         stack = new DoublyLinkedList<T>();
     }
 
-    public boolean isEmpty(){
-        return(stack.isEmpty());
+    public boolean isEmpty() {
+        return (stack.isEmpty());
     }
 
     public T peek() {
@@ -30,7 +31,7 @@ public class MyStack<T extends Comparable<T>> implements Iterable<T>{
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new DoublyLinkedListIterator(stack);
     }
 
     public static void main(String[] args) {
@@ -38,7 +39,19 @@ public class MyStack<T extends Comparable<T>> implements Iterable<T>{
         test.push("Daniel");
         test.push("Kalle");
         test.push("Erik");
-        System.out.println(test.peek());
+
+        System.out.println(test.pop());
+        System.out.println(test.pop());
+        System.out.println(test.pop());
+        System.out.println(test.isEmpty());
+        //System.out.println(test.peek());
+
+        Iterator iter = test.iterator();
+
+        while (iter.hasNext()) {
+            System.out.println(iter.next());
+        }
+
     }
 
 }

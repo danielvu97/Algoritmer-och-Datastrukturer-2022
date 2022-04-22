@@ -84,24 +84,20 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         int deleted = 0;
         ListNode<T> temp = head;
 
-        while(temp != null){
-            if(temp.data == t){
-                if(temp == head){
+        while (temp != null) {
+            if (temp.data == t) {
+                if (temp == head) {
                     head = head.next;
-                    if(head == null){
+                    if (head == null) {
                         tail = null;
-                    }
-                    else{
+                    } else {
                         head.prev = null;
                     }
-                }
-                else {
+                } else {
                     temp.prev.next = temp.next;
-                    if(temp.next == null){
+                    if (temp.next == null) {
                         tail = temp.prev;
-                    }
-                    else
-                    {
+                    } else {
                         temp.next.prev = temp.prev;
                     }
                 }
@@ -153,6 +149,8 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         tail = tail.prev;
         if (tail != null) {
             tail.next = null;
+        } else {
+            head = null;
         }
         counter--;
         return temp.data;
@@ -167,6 +165,8 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         head = head.next;
         if (head != null) {
             head.prev = null;
+        } else {
+            tail = null;
         }
 
         counter--;
@@ -189,7 +189,7 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         return null;
     }
 
-    public void clear(){
+    public void clear() {
         counter = 0;
         head = null;
         tail = null;
@@ -214,12 +214,17 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         myList.add("Man");
         myList.add("Daniel");
         //myList.add(1,"Sara");
-        System.out.println(myList);
+        //System.out.println(myList);
 
         //System.out.println(myList.remove("Daniel"));
-        System.out.println(myList.getLast());
+        //System.out.println(myList.getLast());
 
-        System.out.println(myList);
+        //System.out.println(myList);
+
+        Iterator iter = new DoublyLinkedListIterator(myList);
+        while(iter.hasNext()){
+            System.out.println(iter.next());
+        }
     }
 
 }
