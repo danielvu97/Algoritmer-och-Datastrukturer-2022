@@ -216,7 +216,8 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         //myList.add(1,"Sara");
         System.out.println(myList);
 
-        System.out.println(myList.remove("Daniel"));
+        //System.out.println(myList.remove("Daniel"));
+        System.out.println(myList.getLast());
 
         System.out.println(myList);
     }

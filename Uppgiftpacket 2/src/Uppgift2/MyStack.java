@@ -12,24 +12,33 @@ public class MyStack<T extends Comparable<T>> implements Iterable<T>{
         stack = new DoublyLinkedList<T>();
     }
 
-    public void push(T t) {
-        stack.add(t);
+    public boolean isEmpty(){
+        return(stack.isEmpty());
     }
 
     public T peek() {
         return stack.getLast();
     }
 
-    public boolean isEmpty(){
-        return(stack.isEmpty());
-    }
-
     public T pop() {
         return stack.removeLast();
+    }
+
+    public void push(T t) {
+        stack.add(t);
     }
 
     @Override
     public Iterator<T> iterator() {
         return null;
     }
+
+    public static void main(String[] args) {
+        MyStack test = new MyStack();
+        test.push("Daniel");
+        test.push("Kalle");
+        test.push("Erik");
+        System.out.println(test.peek());
+    }
+
 }
