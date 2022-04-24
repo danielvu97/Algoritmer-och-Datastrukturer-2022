@@ -1,5 +1,7 @@
 package Uppgift1;
 
+import Uppgift2.MyStack;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -149,10 +151,13 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         tail = tail.prev;
         if (tail != null) {
             tail.next = null;
-        } else {
-            head = null;
         }
         counter--;
+
+        if (this.isEmpty()) {
+            head = null;
+            tail = null;
+        }
         return temp.data;
     }
 
@@ -165,11 +170,14 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         head = head.next;
         if (head != null) {
             head.prev = null;
-        } else {
-            tail = null;
         }
 
         counter--;
+
+        if (this.isEmpty()) {
+            head = null;
+            tail = null;
+        }
         return temp.data;
     }
 
@@ -186,7 +194,7 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new DoublyLinkedListIterator<T>(this);
     }
 
     public void clear() {
@@ -205,8 +213,48 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         return val;
     }
 
+    public void reverse() {
+        MyStack<T> stack = new MyStack<T>();
+
+        while (!this.isEmpty()) {
+            stack.push(this.removeFirst());
+        }
+        while (!stack.isEmpty()) {
+            this.add(stack.pop());
+        }
+    }
+
+    public void addAtFirstSmaller(T t) {
+        ListNode<T> current = tail;
+        ListNode<T> newNode = new ListNode(t);
+
+
+        while (current != null) {
+            if (current.data.compareTo(t) < 0) {
+                if (current == tail) {
+                    this.add(t);
+                } else {
+                    current.next.prev = newNode;
+                    newNode.next = current.next;
+                    newNode.prev = current;
+                    current.next = newNode;
+                    counter++;
+                }
+                return;
+            }
+            current = current.prev;
+        }
+        this.add(0, t);
+    }
+
+
+
+
     public static void main(String[] args) {
+
+       /*
         DoublyLinkedList myList = new DoublyLinkedList();
+
         myList.add("Daniel");
         myList.add("Kalle");
         myList.add("Erik");
@@ -214,17 +262,40 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         myList.add("Man");
         myList.add("Daniel");
         //myList.add(1,"Sara");
-        //System.out.println(myList);
+        System.out.println(myList.get(3));
+        System.out.println(myList.getFirst());
+        System.out.println(myList.getLast());
+        myList.reverse();
+        //myList.remove("Daniel");
+        //myList.clear();
+         */
 
-        //System.out.println(myList.remove("Daniel"));
-        //System.out.println(myList.getLast());
+        //Uppgift 3b
 
-        //System.out.println(myList);
+        DoublyLinkedList lista = new DoublyLinkedList();
 
-        Iterator iter = new DoublyLinkedListIterator(myList);
-        while(iter.hasNext()){
+        int[] a = {9,5,7,6,4,8,1,2,3,9,5,2,6,1,2,8,4,3,4};
+
+        long start = System.currentTimeMillis();
+        for(int t: a){
+            lista.addAtFirstSmaller(t);
+        }
+        long finish = System.currentTimeMillis();
+        int computationalTime = (int) (finish - start);
+
+        System.out.println(lista);
+        System.out.println(computationalTime);
+
+
+/*
+        Iterator iter = lista.iterator();
+        while (iter.hasNext()) {
             System.out.println(iter.next());
         }
+
+ */
     }
+
+
 
 }
