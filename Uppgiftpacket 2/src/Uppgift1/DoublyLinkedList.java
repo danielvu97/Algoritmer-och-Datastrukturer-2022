@@ -248,8 +248,6 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
     }
 
 
-
-
     public static void main(String[] args) {
 
        /*
@@ -274,10 +272,10 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
         DoublyLinkedList lista = new DoublyLinkedList();
 
-        int[] a = {9,5,7,6,4,8,1,2,3,9,5,2,6,1,2,8,4,3,4};
+        int[] a = {9, 5, 7, 6, 4, 8, 1, 2, 3, 9, 5, 2, 6, 1, 2, 8, 4, 3, 4};
 
         long start = System.currentTimeMillis();
-        for(int t: a){
+        for (int t : a) {
             lista.addAtFirstSmaller(t);
         }
         long finish = System.currentTimeMillis();
@@ -295,7 +293,6 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
  */
     }
-
 
 
 }
