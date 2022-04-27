@@ -1,1 +1,2 @@
 Remove assignment wants to remove all occurrences of x in doublelinkedlist
+This doublelinkedlist is implemented without a dummy head.
