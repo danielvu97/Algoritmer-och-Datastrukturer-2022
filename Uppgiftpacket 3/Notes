@@ -1,1 +1,3 @@
-tester tester
+Object är en klass som inte är comparable?
+
+MaxPQ = sorterings algorithm på nlog(n)
