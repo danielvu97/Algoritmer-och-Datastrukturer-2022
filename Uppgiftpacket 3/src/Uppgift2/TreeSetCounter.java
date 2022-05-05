@@ -4,9 +4,13 @@ import java.util.Iterator;
 
 public class TreeSetCounter<T extends Comparable<T>> implements Iterable<T> {
 
+    public TreeSetCounter(){
+
+    }
 
 
     @Override
+
     public Iterator<T> iterator() {
         return null;
     }
