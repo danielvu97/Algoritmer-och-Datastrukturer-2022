@@ -20,7 +20,7 @@ public class DataBuffer<T> implements Iterable<T> {
         }
     }
 
-    public void enqueue(T t) throws Exception {
+    public synchronized void enqueue(T t) throws Exception {
         if (isFull()) {
             throw new Exception("Circular Queue is full");
         } else {
@@ -30,7 +30,7 @@ public class DataBuffer<T> implements Iterable<T> {
         }
     }
 
-    public T dequeue() throws Exception {
+    public synchronized T dequeue() throws Exception {
         T object = null;
         if (isEmpty()) {
            throw  new Exception("Circular Queue is Empty");

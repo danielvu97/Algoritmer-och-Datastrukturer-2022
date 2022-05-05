@@ -1,6 +1,8 @@
 package Uppgift1;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Random;
 
 public class MaxPQ<Key extends Comparable<Key>> {
 
@@ -13,7 +15,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
     }
 
     public MaxPQ(int max) {
-        this.a = (Key[]) new Comparable[max];
+        a = (Key[]) new Comparable[max];
         this.size = 0;
     }
 
@@ -31,12 +33,13 @@ public class MaxPQ<Key extends Comparable<Key>> {
         }
     }
 
-    public void insert(Key v) {
+    public void insert(Key t) {
         if (size >= a.length - 1) {
             a = Arrays.copyOf(a, 2 * a.length);
-            a[size++] = v;
-            swim(size);
         }
+        a[++size] = t;
+        swim(size);
+
     }
 
     public Key max() {
@@ -67,8 +70,8 @@ public class MaxPQ<Key extends Comparable<Key>> {
         return size;
     }
 
-    private boolean less(int i, int j) {
-        return a[i].compareTo(a[j]) < 0;
+    private boolean less(Key i, Key j) {
+        return i.compareTo(j) < 0;
     }
 
     private void exchange(int i, int j) {
@@ -80,22 +83,23 @@ public class MaxPQ<Key extends Comparable<Key>> {
     private void sink(int k) {
         while (2 * k <= size) {
             int i = 2 * k;
-            if (i < size && less(i, i + 1)) i++;
-            if (less(i, k)) break;
+            if (i < size && less(a[i], a[i + 1])) i++;
+            if (less(a[i], a[k])) break;
             exchange(i, k);
             k = i;
         }
     }
 
     private void swim(int k) {
-        while (k / 2 > 0 && less(k / 2, k)) {
-            exchange(k / 2, k);
+        while (k / 2 >= 1 && less(a[k / 2], a[k])) {
+            exchange(k, k / 2);
             k /= 2;
         }
     }
 
+
     public static void main(String[] cmdLn) {
-        Integer[] arr = {5, 8, 1, 3, 4, 6};
+        Integer[] arr = { 5, 8, 1, 3, 4, 6 };
         MaxPQ<Integer> pq = new MaxPQ<Integer>(arr);
         /*
          * pq.insert(1); pq.insert(3); pq.insert(7); pq.insert(2);
@@ -106,6 +110,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
         System.out.println(pq.delMax());
         System.out.println(pq.delMax());
         System.out.println(pq.delMax());
+
 
     }
 
