@@ -88,7 +88,7 @@ public class Trader extends Thread {
         DataBuffer<StockPick> stockPicks =
                 new DataBuffer<StockPick>(bufferSize);
 
-        // StockPicker 1
+        // Uppgift1.StockPicker 1
         String[] stocks1 = new String[]{
                 "TSLA", "CCJ", "GME", "UUUU",
                 "MFST", "GOOGL", "AAPL",
@@ -99,7 +99,7 @@ public class Trader extends Thread {
                         stockPicks, stocks1, 10);
 
 
-        // StockPicker 2
+        // Uppgift1.StockPicker 2
         String[] stocks2 = new String[]{
                 "ETH", "BTC"};
 

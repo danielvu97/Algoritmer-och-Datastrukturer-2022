@@ -1,7 +1,6 @@
 package Uppgift1;
 
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime; 
+import java.time.LocalDateTime;
 import java.util.*;
 public class StockPicker extends Thread
 {
