@@ -97,7 +97,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
 
     public static void main(String[] cmdLn) {
-        Integer[] arr = { 5, 8, 1, 3, 4, 6 };
+        Integer[] arr = {5, 8, 1, 3, 4, 6};
         MaxPQ<Integer> pq = new MaxPQ<Integer>(arr);
         /*
          * pq.insert(1); pq.insert(3); pq.insert(7); pq.insert(2);

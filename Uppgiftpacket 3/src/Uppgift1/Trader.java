@@ -61,6 +61,7 @@ public class Trader extends Thread {
                 e.printStackTrace();
             }
 
+            //töm PQ.
 
 
             /*
