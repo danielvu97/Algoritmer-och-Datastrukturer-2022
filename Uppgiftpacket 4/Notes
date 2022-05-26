@@ -1,0 +1,3 @@
+Notes for LinearProbingHashSet
+*When we double the array, we "rehash" the elements again with the new size to avoid wrong position when inserting the same element.
+*When we delete or decrease. It's a must to iterate the whole array. Otherwise we wont find the element of [hashValue+1] position if they have same hashValue.

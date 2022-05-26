@@ -83,6 +83,9 @@ public class LinearProbingHashSet<Key> {
                 counter++;
             }
         }
+        if(counter == m){
+            System.out.println("Key does not exist");
+        }
 
     }
 
@@ -138,7 +141,6 @@ public class LinearProbingHashSet<Key> {
             if (a[i] == null) {
 
             } else {
-                //because we got new size, rehashing the elements.
                 int counter = 0;
                 HashElement<Key> element = a[i];
                 int hashValue = hash(element.getKey());
@@ -188,14 +190,18 @@ public class LinearProbingHashSet<Key> {
 
         myHashList.insert((1));
         myHashList.insert((1));
-        myHashList.insert((500));
         //myHashList.insert((1));
+        myHashList.insert((500));
         myHashList.insert((101));
         myHashList.insert((101));
         myHashList.decrease(1);
         myHashList.decrease(1);
         myHashList.decrease(101);
         myHashList.decrease(101);
+        //myHashList.delete(1);
+        //myHashList.delete(1);
+        //myHashList.delete(101);
+        //myHashList.delete(101);
         //myHashList.insert((150));
 
         //myHashList.decrease(1);
@@ -211,20 +217,13 @@ public class LinearProbingHashSet<Key> {
 
 
         System.out.println();
-        //myHashList.delete((1));
-        //myHashList.delete((101));
-        //myHashList.delete((999999));
-        //myHashList.delete("a");
-        //myHashList.delete("b");
-        //myHashList.delete("c");
-        //myHashList.decrease(1);
-        //myHashList.decrease(1);
-        //myHashList.decrease(1);
-        //System.out.println(myHashList);
 
-        //System.out.println(myHashList.contains((6)));
-        //System.out.println(myHashList.contains((7)));
-        //System.out.println(myHashList.contains((7)));
+
+        //System.out.println(myHashList.contains((1)));
+        //System.out.println(myHashList.contains(("a")));
+        //System.out.println(myHashList.contains((999999999)));
+        //System.out.println(myHashList.contains(("Daniel")));
+
 
         Iterator<Object> iter = myHashList.keys().iterator();
         while (iter.hasNext()) {
