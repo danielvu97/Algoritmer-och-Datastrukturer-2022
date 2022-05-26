@@ -38,7 +38,6 @@ public class LinearProbingHashSet<Key> {
         int hashValue = hash(key);
         int counter = 0;
 
-        //if position is not null and key is not equal to the position.
         while (a[hashValue] != null && !(a[hashValue].getKey().equals(key)) && counter != m) {
             hashValue = (hashValue + 1) % m;
             counter++;
@@ -50,7 +49,6 @@ public class LinearProbingHashSet<Key> {
         } else if (a[hashValue].getKey().equals(key)) {
             a[hashValue].increment();
         }
-        //maybe add more?
 
     }
 
