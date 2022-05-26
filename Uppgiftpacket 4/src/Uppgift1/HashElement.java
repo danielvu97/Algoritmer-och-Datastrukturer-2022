@@ -37,12 +37,20 @@ public class HashElement<Key> implements Comparable<HashElement<Key>> {
 
     @Override
     public int compareTo(HashElement<Key> o) {
-        if(this.compareTo(o) < 0){
+        if(this.counter < o.counter){
             return -1;
         }
-        if(this.compareTo(o) > 0){
+        if(this.counter > o.counter){
             return 1;
         }
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "key=" + key +
+                ",c=" + counter +
+                '}';
     }
 }
